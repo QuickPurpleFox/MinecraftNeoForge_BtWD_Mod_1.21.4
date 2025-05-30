@@ -1,4 +1,7 @@
 {
   "item.beyondthewesterndeep.silver": "Silver",
-  "item.beyondthewesterndeep.silver_coin": "Silver coin"
+  "item.beyondthewesterndeep.silver_coin": "Silver coin",
+  "item.beyondthewesterndeep.silver_ore": "Silver ore",
+
+  "block.beyondthewesterndeep.silver_ore": "Silver ore"
 }

@@ -2,6 +2,9 @@ package net.chinifox.beyondthewesterndeep.block;
 
 import net.chinifox.beyondthewesterndeep.BeyondTheWesternDeep;
 import net.chinifox.beyondthewesterndeep.item.ModItems;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -30,7 +33,9 @@ public class ModBlocks
                     .requiresCorrectToolForDrops() // wymaga odpowiedniego narzędzia do wydobycia
                     .sound(SoundType.STONE) // dźwięk taki jak kamień
                     .mapColor(MapColor.STONE) // kolor na mapie
-                    .instrument(NoteBlockInstrument.BASEDRUM) // dźwięk z noteblocka po ustawieniu bloku
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .setId(ResourceKey.create(Registries.BLOCK, ResourceLocation.parse("beyondthewesterndeep:silver_ore"))
+                    )
             )
     );
 
@@ -56,7 +61,8 @@ public class ModBlocks
      */
     private static <T extends Block> void registerBlockItem(String name, DeferredBlock<T> block)
     {
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().setId(ResourceKey.create(Registries.ITEM, ResourceLocation.fromNamespaceAndPath(BeyondTheWesternDeep.MOD_ID,name)))));
+
     }
 
     /**
